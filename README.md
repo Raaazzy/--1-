@@ -26,21 +26,15 @@ gcc -O0 -Wall -masm=intel -S -fno-asynchronous-unwind-tables -fcf-protection=non
 Результаты тестов программы без лишних макросов:
 
 ![](https://github.com/Raaazzy/--1-/blob/main/images/after_test1.png)
-
 ![](https://github.com/Raaazzy/--1-/blob/main/images/after_test2.png)
-
 ![](https://github.com/Raaazzy/--1-/blob/main/images/after_test3.png)
-
 ![](https://github.com/Raaazzy/--1-/blob/main/images/after_test4.png)
 
 
 Результаты тестов программы c лишними макросами:
 
 ![](https://github.com/Raaazzy/--1-/blob/main/images/before_test1.png)
-
 ![](https://github.com/Raaazzy/--1-/blob/main/images/before_test2.png)
-
 ![](https://github.com/Raaazzy/--1-/blob/main/images/before_test3.png)
-
 ![](https://github.com/Raaazzy/--1-/blob/main/images/before_test4.png)
 
