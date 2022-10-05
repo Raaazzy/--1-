@@ -10,7 +10,7 @@ gcc -O0 -Wall -masm=intel -S -fno-asynchronous-unwind-tables -fcf-protection=non
 ```
 
 - Модифицированная ассемблерная программа отдельно откомпилирована и скомпонована без использования опций отладки:
-![]()
+![](https://github.com/Raaazzy/--1-/blob/main/images/Assembler_code.png)
 Для это использовались команды:
 ```
 # as --gstabs -o name.o name.s
