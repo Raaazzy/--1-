@@ -25,7 +25,7 @@ gcc -O0 -Wall -masm=intel -S -fno-asynchronous-unwind-tables -fcf-protection=non
 Все тесты отработали корректно на обоих программах.
 Результаты тестов программы без лишних макросов:
 
-![](https://github.com/Raaazzy/--1-/blob/main/images/after_test1.png, "width = 1000")
+![](https://github.com/Raaazzy/--1-/blob/main/images/after_test1.png)
 
 ![](https://github.com/Raaazzy/--1-/blob/main/images/after_test2.png)
 
