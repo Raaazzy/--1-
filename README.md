@@ -3,4 +3,6 @@
 
 **Часть 1**
 Из ассемблерной программы убраны лишние макросы за счет использования соответствующих аргументов командной строки:
-![](https://github.com/Raaazzy/--1-/blob/main/image.png)
+```
+gcc -O0 -Wall -masm=intel -S -fno-asynchronous-unwind-tables-fcf-protection=none main.c
+```
