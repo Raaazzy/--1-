@@ -9,41 +9,41 @@
 # На 7 баллов:
 ### - Скомпоновала программу, с помощью команд:
 ```s
-      gcc ./main.c -c -o main.o
-      gcc ./task.c -c -o task.o
-      gcc ./task.o main.o -o program.exe
+gcc ./main.c -c -o main.o
+gcc ./task.c -c -o task.o
+gcc ./task.o main.o -o program.exe
 ```
 
 # На 8 баллов:
 ### - Добавлен генератор случайных наборов данных, расширяющих возможности тестирования:
 ```c
-        a_size = atoi(argv[1]);
-        input = fopen("input.txt", "r");
-        // Ввод длины массива
-        printf("Input length (0 < length <= %d): ", max_size);
-        a_size = atoi(argv[argc - 1]);
-        // Проверка длины массива на коррекность
-        if(a_size < 1 || a_size > max_size) {
-            printf("Incorrect length = %d\n", a_size);
-            return 1;
-        }
-        // Чтение с файла значение элементов массива А
-        for(i = 0; i < a_size; ++i) {
-            fscanf(input,"%d", A + i);
-        }
-        printf("Length of array A: %d \n", a_size);
-        printf("Array A: ");
-        for(i = 0; i < a_size; ++i) {
-            printf("%d ", A[i]);
-        }
-        printf("\n");
-        // Вызов метода для извлечения из А положительных элементов в B
-        b_size = Task(A, a_size, B);
-        // Запись в файл массива B
-        output = fopen("output.txt", "w");
-        for(i = 0; i < b_size; ++i) {
-            fprintf(output, "%d", B[i]);
-        }
+a_size = atoi(argv[1]);
+input = fopen("input.txt", "r");
+// Ввод длины массива
+printf("Input length (0 < length <= %d): ", max_size);
+a_size = atoi(argv[argc - 1]);
+// Проверка длины массива на коррекность
+if(a_size < 1 || a_size > max_size) {
+      printf("Incorrect length = %d\n", a_size);
+      return 1;
+}
+// Чтение с файла значение элементов массива А
+for(i = 0; i < a_size; ++i) {
+      fscanf(input,"%d", A + i);
+}
+printf("Length of array A: %d \n", a_size);
+printf("Array A: ");
+for(i = 0; i < a_size; ++i) {
+      printf("%d ", A[i]);
+}
+printf("\n");
+// Вызов метода для извлечения из А положительных элементов в B
+b_size = Task(A, a_size, B);
+// Запись в файл массива B
+output = fopen("output.txt", "w");
+for(i = 0; i < b_size; ++i) {
+      fprintf(output, "%d", B[i]);
+}
 ```
 ### - Генератор подключен к программе с выбором в командной строке варианта ввода данных:<br>
 Проверяю, что в консоль введен 1 аргумент, а далее значение этого аргумента.<br>
