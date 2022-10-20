@@ -9,8 +9,10 @@
 # На 7 баллов:
 #### - Скомпоновала программу, с помощью команд:
 ```s
-gcc ./main.c -c -o main.o
-gcc ./task.c -c -o task.o
+gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions ./main.c -S -o ./main.s
+gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions ./task.c -S -o ./task.s
+gcc ./main.s -c -o main.o
+gcc ./task.s -c -o task.o
 gcc ./task.o main.o -o program.exe
 ```
 
