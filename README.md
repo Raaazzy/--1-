@@ -177,12 +177,12 @@ int counter = 0;
 1 1 1 -8 1 1 1 1 1 1 0 1 1 1 -1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 -2
 ```
 - Все тесты программа выполнила успешно, выдав корректный результат:
-1. ![image](https://user-images.githubusercontent.com/111382627/197212536-fc3b1770-199c-4c59-ab20-5bb58dc49624.png)
-2. ![image](https://user-images.githubusercontent.com/111382627/197213133-dcfe9a21-25b4-4591-8bee-8ae9e7984ed8.png)
-3. ![image](https://user-images.githubusercontent.com/111382627/197213258-ec63bf05-0158-4ac6-99a0-77fb263eb722.png)
-4. ![image](https://user-images.githubusercontent.com/111382627/197212745-a52ba679-308f-49a2-9af9-c8f1b93a4d9e.png)
-5. ![image](https://user-images.githubusercontent.com/111382627/197213394-beb79933-9387-4893-a6a9-de258e3d7cec.png)
-6. ![image](https://user-images.githubusercontent.com/111382627/197214039-5a71eaed-12f6-4571-9dc9-c0f0243a444d.png)
+> ![image](https://user-images.githubusercontent.com/111382627/197212536-fc3b1770-199c-4c59-ab20-5bb58dc49624.png)
+![image](https://user-images.githubusercontent.com/111382627/197213133-dcfe9a21-25b4-4591-8bee-8ae9e7984ed8.png)
+![image](https://user-images.githubusercontent.com/111382627/197213258-ec63bf05-0158-4ac6-99a0-77fb263eb722.png)
+![image](https://user-images.githubusercontent.com/111382627/197212745-a52ba679-308f-49a2-9af9-c8f1b93a4d9e.png)
+![image](https://user-images.githubusercontent.com/111382627/197213394-beb79933-9387-4893-a6a9-de258e3d7cec.png)
+![image](https://user-images.githubusercontent.com/111382627/197214039-5a71eaed-12f6-4571-9dc9-c0f0243a444d.png)
 
 # На 7 баллов:
 ### - Реализация программы на ассемблере, полученной после рефакторинга, в виде двух или более единиц компиляции.
@@ -271,3 +271,9 @@ for (i = 0; i < 2000000; ++i) {
 time_t end_time = clock();
 printf("\nпрограмма работает %f миллисекунд\n", difftime(end_time, start_time));
 ```
+
+- По результатом замеров, было выявлено, что модифицированная программа работает быстрее на 1-1.5 секунды:<br>
+> Не модифицированная программа:<br>
+![image](https://user-images.githubusercontent.com/111382627/197294709-0eabd659-cac1-4221-8b45-f6470758fb7d.png)
+Модифицированная программа:<br>
+![image](https://user-images.githubusercontent.com/111382627/197294759-be0d2fdb-8da2-4779-88db-409218ecd6ec.png)
