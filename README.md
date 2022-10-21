@@ -199,6 +199,25 @@ gcc ./task.s -c -o task.o
 gcc ./task.o main.o -o program.exe
 ```
 ### - Задание файлов с исходными данными и файла для вывода результатов с использованием аргументов командной строки.
+> главный файл с функцией main - [main.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%206/main.c)<br>
+побочный файл с функцией task для создания массива B - [task.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%206/task.c)<br>
+
+Данный пункт реализован с помощью добавления фрагмента кода в функцию main:
+```
+a_size = atoi(argv[2]);
+input = fopen("input.txt", "r");
+// Чтение с файла значение элементов массива А
+for(i = 0; i < a_size; ++i) {
+	fscanf(input,"%d", A + i);
+}
+// Вызов метода для извлечения из А положительных элементов в B
+b_size = Task(A, a_size, B);
+// Запись в файл массива B
+output = fopen("output.txt", "w");
+for(i = 0; i < b_size; ++i) {
+	fprintf(output, "%d ", B[i]);
+}
+```
 
 # На 8 баллов:
 ### - Добавлен генератор случайных наборов данных, расширяющих возможности тестирования:
