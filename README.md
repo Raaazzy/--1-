@@ -6,7 +6,7 @@
 > главный файл с функцией main (до модификации) - [main.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%B4%D0%BE%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/main.c)<br>
 побочный файл с функцией task для создания массива B (до модификации) - [task.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%B4%D0%BE%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/task.c)<br>
 
-### - В полученную ассемблерную программу, откомпилированную без оптимизирующих и отладочных опций, добавлены комментарии.
+### - В полученную ассемблерную программу, откомпилированную без оптимизирующих и отладочных опций, добавлены комментарии, поясняющие эквивалентное представление переменных в программе на C.
 > главный файл с функцией main (до модификации) - [main.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%B4%D0%BE%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/main.s)<br>
 побочный файл с функцией task для создания массива B (до модификации) - [task.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%B4%D0%BE%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/task.s)<br>
 
@@ -63,6 +63,45 @@ gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-prot
 4. ![image](https://user-images.githubusercontent.com/111382627/197212745-a52ba679-308f-49a2-9af9-c8f1b93a4d9e.png)
 5. ![image](https://user-images.githubusercontent.com/111382627/197213394-beb79933-9387-4893-a6a9-de258e3d7cec.png)
 6. ![image](https://user-images.githubusercontent.com/111382627/197214039-5a71eaed-12f6-4571-9dc9-c0f0243a444d.png)
+
+# На 5 баллов:
+### - В реализованной программе использовать функции с передачей данных через параметры.
+> файл с функцией task для создания массива B - [task.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/task.c)<br>
+
+Для реализации данного пункта использовалась отдельная функция, которая принимает параметры array[], size и *B:
+```c
+int Task(int array[], int size,int *B)
+```
+
+### - Использовать локальные переменные.
+> главный файл с функцией main - [main.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/main.c)<br>
+побочный файл с функцией task для создания массива B - [task.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/task.c)<br>
+
+Локальные переменные, которые были использованы в функции main:
+```c
+int A[max_size];
+int B[max_size];
+int a_size;
+int b_size;
+int i;
+struct timespec start;
+struct timespec end;
+FILE *input, *output;
+```
+Локальные переменные, которые были использованы в функции task:
+```c
+int j;
+int counter = 0;
+```
+### - В ассемблерную программу при вызове функции добавить комментарии, описывающие передачу фактических параметров и перенос возвращаемого результата.
+> главный файл с функцией main - [main.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/main.s)<br>
+побочный файл с функцией task для создания массива B - [task.s](https://github.com/Raaazzy/Home_work_1/tree/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204)<br>
+
+### - В функциях для формальных параметров добавить комментарии, описывающие связь между параметрами языка Си и регистрами (стеком).
+> главный файл с функцией main - [main.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/main.s)<br>
+побочный файл с функцией task для создания массива B - [task.s](https://github.com/Raaazzy/Home_work_1/tree/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204)<br>
+
+# На 6 баллов:
 
 # На 7 баллов:
 ### - Реализация программы на ассемблере, полученной после рефакторинга, в виде двух или более единиц компиляции.
