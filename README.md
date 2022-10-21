@@ -72,6 +72,9 @@
 ```s
 gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions ./main.c -S -o ./main.s
 gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions ./task.c -S -o ./task.s
+gcc ./main.s -c -o main.o
+gcc ./task.s -c -o task.o
+gcc ./task.o main.o -o program.exe
 ```
 
 ### - Представлено полное тестовое покрытие, дающее одинаковый результат на обоих программах.
@@ -96,7 +99,7 @@ gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-prot
 ### - В реализованной программе использовать функции с передачей данных через параметры.
 > файл с функцией task для создания массива B - [task.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/task.c)<br>
 
-Для реализации данного пункта использовалась отдельная функция, которая принимает параметры array[], size и *B:
+Для реализации данного пункта использовалась отдельная функция Task, которая принимает параметры array[], size и *B:
 ```c
 int Task(int array[], int size,int *B)
 ```
@@ -132,26 +135,62 @@ int counter = 0;
 # На 6 баллов:
 ### - Рефакторинг программы на ассемблере за счет максимального использования регистров процессора.
 Все локальные переменные заменены на регистры. Добавлены соответствующие комментарии в коде программ.<br>
-в файле с функцией main - [main.s]()<br>
+> В файле с функцией main - [main.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%206/main.s):<br>
 ```
 # r11d - b_size
 # r12d - i
 # r13d - локальная i
 # r14d - очень локальная i
 # r15d - a_size
+# -24[rbp] - input
+# -32[rbp] - output
+# -160[rbp] - A 
+# -288[rbp] - B
+# -312[rbp] - start.tv_nsec
+# -320[rbp] - start
+# -328[rbp] - end.tv_nsec
+# -336[rbp] - end
+# -340[rbp] - args
+# -352[rbp] - argv
 ```
-в файле с функцией task - [task.s]()<br>
+> В файле с функцией task - [task.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%206/task.s):<br>
 ```
 # r11d - j
 # r12d - counter
+# -24[rbp] - array
+# -28[rbp] - size
+# -40[rbp] - B
 ```
+
+### - Добавление комментариев в разработанную программу, поясняющих эквивалентное использование регистров вместо переменных исходной программы на C.
+> главный файл с функцией main - [main.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%206/main.s)<br>
+побочный файл с функцией task для создания массива B - [task.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%206/task.s)<br>
+
+### - Представлены тестовые прогоны для разработанной программы.
+Программа была протестирована на следующих тестовых данных:
+```
+1 1 -1 1 1
+1 2 3 4 5
+-1 2 -3 4 -5
+1
+0
+1 1 1 -8 1 1 1 1 1 1 0 1 1 1 -1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 -2
+```
+- Все тесты программа выполнила успешно, выдав корректный результат:
+1. ![image](https://user-images.githubusercontent.com/111382627/197212536-fc3b1770-199c-4c59-ab20-5bb58dc49624.png)
+2. ![image](https://user-images.githubusercontent.com/111382627/197213133-dcfe9a21-25b4-4591-8bee-8ae9e7984ed8.png)
+3. ![image](https://user-images.githubusercontent.com/111382627/197213258-ec63bf05-0158-4ac6-99a0-77fb263eb722.png)
+4. ![image](https://user-images.githubusercontent.com/111382627/197212745-a52ba679-308f-49a2-9af9-c8f1b93a4d9e.png)
+5. ![image](https://user-images.githubusercontent.com/111382627/197213394-beb79933-9387-4893-a6a9-de258e3d7cec.png)
+6. ![image](https://user-images.githubusercontent.com/111382627/197214039-5a71eaed-12f6-4571-9dc9-c0f0243a444d.png)
 
 # На 7 баллов:
 ### - Реализация программы на ассемблере, полученной после рефакторинга, в виде двух или более единиц компиляции.
 Было получено 2 единицы компиляции: 
-главный файл с функцией main - [main.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%B4%D0%BE%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/main.c)<br>
-побочный файл с функцией task для создания массива B - [task.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%B4%D0%BE%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8/task.c)<br>
-Скомпоновала программу, с помощью команд:
+> главный файл с функцией main - [main.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%206/main.s)<br>
+побочный файл с функцией task для создания массива B - [task.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%206/task.s)<br>
+
+Программа скомпанована с помощью команд:
 ```s
 gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions ./main.c -S -o ./main.s
 gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions ./task.c -S -o ./task.s
@@ -159,6 +198,7 @@ gcc ./main.s -c -o main.o
 gcc ./task.s -c -o task.o
 gcc ./task.o main.o -o program.exe
 ```
+### - Задание файлов с исходными данными и файла для вывода результатов с использованием аргументов командной строки.
 
 # На 8 баллов:
 ### - Добавлен генератор случайных наборов данных, расширяющих возможности тестирования:
