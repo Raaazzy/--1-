@@ -14,12 +14,12 @@
 > главный файл с функцией main (после модификации) - [main.s](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204/main.s)<br>
 побочный файл с функцией task для создания массива B (после модификации) - [task.s](https://github.com/Raaazzy/Home_work_1/tree/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%204)<br>
 
-Убраны следующие строчки кода:<br>
+Убраны следующие строчки кода в файле main.s:<br>
 ```s
 	endbr64                                                       #50-я строка
 
-	.size	main, .-main
-	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"          #346-я строка
+	.size	main, .-main					      #346-я строка
+	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
 	.section	.note.GNU-stack,"",@progbits                          
 	.section	.note.gnu.property,"a"                                
 	.align 8                                                          
@@ -37,6 +37,30 @@
 3:                                                                      
 	.align 8                                                          
 4:                                                                     #364-я строка
+```
+Убраны следующие строчки кода в файле task.s:<br>
+```
+	endbr64                                                       #13-я строка
+	
+	.size	Task, .-Task					      #53-я строка
+	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
+	.section	.note.GNU-stack,"",@progbits
+	.section	.note.gnu.property,"a"
+	.align 8
+	.long	 1f - 0f
+	.long	 4f - 1f
+	.long	 5
+0:
+	.string	 "GNU"
+1:
+	.align 8
+	.long	 0xc0000002
+	.long	 3f - 2f
+2:
+	.long	 0x3
+3:
+	.align 8
+4:							     	       #70-я строка
 ```
 
 ### - Модифицированная ассемблерная программа отдельно откомпилирована и скомпонована без использования опций отладки.
