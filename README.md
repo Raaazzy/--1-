@@ -1,5 +1,5 @@
-# Arrays and integer calculations
-Омирбекова Дария БПИ-217
+# ИДЗ №1 по АВС (8 баллов)
+Омирбекова Дария, группа БПИ-217
 
 # На 4 балла:
 ### - Приведено решение задачи на C.
@@ -272,8 +272,28 @@ time_t end_time = clock();
 printf("\nпрограмма работает %f миллисекунд\n", difftime(end_time, start_time));
 ```
 
-- По результатом замеров, было выявлено, что модифицированная программа работает быстрее на 1-1.5 секунды:<br>
+- По результатом замеров, было выявлено, что модифицированная программа работает быстрее примерно в 1.5-2 раза:<br>
 > Не модифицированная программа:<br>
 ![image](https://user-images.githubusercontent.com/111382627/197294709-0eabd659-cac1-4221-8b45-f6470758fb7d.png)
 Модифицированная программа:<br>
 ![image](https://user-images.githubusercontent.com/111382627/197294759-be0d2fdb-8da2-4779-88db-409218ecd6ec.png)
+
+> Не модифицированная программа:<br>
+![image](https://user-images.githubusercontent.com/111382627/197296521-f15f34a2-7a95-4598-aa1d-f7fdb62d3b2d.png)
+Модифицированная программа:<br>
+![image](https://user-images.githubusercontent.com/111382627/197295571-c581267b-6e3f-4455-a9e4-eb994ce1ffd6.png)
+
+> Не модифицированная программа:<br>
+![image](https://user-images.githubusercontent.com/111382627/197296692-c95c70a1-cb8a-436a-98a8-41b6bbb7bdb8.png)
+Модифицированная программа:<br>
+![image](https://user-images.githubusercontent.com/111382627/197295811-6d47ba8c-2b57-4f9f-a9ab-aafe66472379.png)
+
+> Не модифицированная программа:<br>
+![image](https://user-images.githubusercontent.com/111382627/197296866-5c9b0cf5-60ef-4ecb-88d2-7db30130a4f2.png)
+Модифицированная программа:<br>
+![image](https://user-images.githubusercontent.com/111382627/197295860-6e592c81-4704-4783-8465-31106885cc4d.png)
+
+> Не модифицированная программа:<br>
+![image](https://user-images.githubusercontent.com/111382627/197296995-6012b0d0-f050-4c69-b10d-97e3521d6e50.png)
+Модифицированная программа:<br>
+![image](https://user-images.githubusercontent.com/111382627/197296939-effa1213-a61f-486c-9f0c-2e87a3cabae8.png)
