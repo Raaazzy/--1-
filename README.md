@@ -219,6 +219,12 @@ for(i = 0; i < b_size; ++i) {
 }
 ```
 
+### - Результат работы с текстовыми данными:
+![image](https://user-images.githubusercontent.com/111382627/197298436-1b7da6b2-9425-4065-af50-73bb9deaa6b4.png)
+![image](https://user-images.githubusercontent.com/111382627/197299009-b752ba71-b2a7-4750-afd8-edb52e83967a.png)
+![image](https://user-images.githubusercontent.com/111382627/197299084-fa416624-b2c6-40f6-89d5-7dbafa729383.png)
+![image](https://user-images.githubusercontent.com/111382627/197299213-a9009076-f5a5-40eb-86d6-777102c8fb8d.png)
+
 # На 8 баллов:
 ### - Добавлен генератор случайных наборов данных, расширяющих возможности тестирования:
 > главный файл с функцией main - [main.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%208/main.c)<br>
@@ -243,6 +249,15 @@ for(i = 0; i < a_size; ++i) {
 	}
 }
 ```
+
+- Тестирование программы прошло успешно:
+![image](https://user-images.githubusercontent.com/111382627/197299761-b24ef2d5-81a2-4ac8-bff4-460baf0f76ed.png)
+![image](https://user-images.githubusercontent.com/111382627/197299876-bb5d8e35-d3f4-48de-84e0-8ad38f17b9b4.png)
+![image](https://user-images.githubusercontent.com/111382627/197299954-60487df6-5158-4d56-b892-ed91481d1951.png)
+![image](https://user-images.githubusercontent.com/111382627/197300096-19762292-71e7-4fe7-923c-9cefe31ece8b.png)
+![image](https://user-images.githubusercontent.com/111382627/197300169-914ef97b-913b-41ee-a570-92ce3fcb79e6.png)
+
+
 ### - Генератор подключен к программе с выбором в командной строке варианта ввода данных:
 > главный файл с функцией main - [main.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%208/main.c)<br>
 побочный файл с функцией task для создания массива B - [task.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%208/task.c)<br>
