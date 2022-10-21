@@ -203,7 +203,7 @@ gcc ./task.o main.o -o program.exe
 побочный файл с функцией task для создания массива B - [task.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%206/task.c)<br>
 
 Данный пункт реализован с помощью добавления фрагмента кода в функцию main:
-```
+```c
 a_size = atoi(argv[2]);
 input = fopen("input.txt", "r");
 // Чтение с файла значение элементов массива А
@@ -221,43 +221,47 @@ for(i = 0; i < b_size; ++i) {
 
 # На 8 баллов:
 ### - Добавлен генератор случайных наборов данных, расширяющих возможности тестирования:
+> главный файл с функцией main - [main.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%208/main.c)<br>
+побочный файл с функцией task для создания массива B - [task.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%208/task.c)<br>
+
+Данный пункт реализован с помощью добавления фрагмента кода в функцию main:
 ```c
 a_size = atoi(argv[1]);
-input = fopen("input.txt", "r");
-// Ввод длины массива
-printf("Input length (0 < length <= %d): ", max_size);
-a_size = atoi(argv[argc - 1]);
-// Проверка длины массива на коррекность
-if(a_size < 1 || a_size > max_size) {
-      printf("Incorrect length = %d\n", a_size);
-      return 1;
+clock_gettime(CLOCK_MONOTONIC, &start);
+clock_gettime(CLOCK_MONOTONIC, &end);
+srand(end.tv_nsec - start.tv_nsec);
+a_size = 0;
+// Генерация случайной длины
+while(a_size < 1 || a_size > max_size){
+	a_size = rand();
 }
-// Чтение с файла значение элементов массива А
+// Заполнение массива А случайными данными
 for(i = 0; i < a_size; ++i) {
-      fscanf(input,"%d", A + i);
-}
-printf("Length of array A: %d \n", a_size);
-printf("Array A: ");
-for(i = 0; i < a_size; ++i) {
-      printf("%d ", A[i]);
-}
-printf("\n");
-// Вызов метода для извлечения из А положительных элементов в B
-b_size = Task(A, a_size, B);
-// Запись в файл массива B
-output = fopen("output.txt", "w");
-for(i = 0; i < b_size; ++i) {
-      fprintf(output, "%d", B[i]);
+	A[i] = rand();
+	if(A[i] % 4 == 0){
+		A[i] *= -1;
+	}
 }
 ```
 ### - Генератор подключен к программе с выбором в командной строке варианта ввода данных:<br>
-Проверяю, что в консоль введен 1 аргумент, а далее значение этого аргумента.<br>
-Если равен 1, то значит, что пользователь выбрал ввод с консоли.<br>
-Если равен 2, то значит, что пользователь выбрал ввод с файла.<br>
-Если равен 3, то значит, что пользователь выбрал ввод с помощью рандома.<br>
-
+Проверяю, что в консоль введен один аргумент, а далее значение этого аргумента:<br>
+- если равен 1, то значит, что пользователь выбрал ввод с консоли.<br>
+- если равен 2, то значит, что пользователь выбрал ввод с файла.<br>
+- если равен 3, то значит, что пользователь выбрал ввод с помощью рандома.<br>
 ```c
         if (argc == 2 && atoi(argv[1]) == 1) {}
         else if (argc == 2 && atoi(argv[1]) == 2) {}
         else if (argc == 2 && atoi(argv[1]) == 3) {}
+```
+### - Добавены замеры во времени, которые не учитывают время ввода и вывода данных.
+Данный пункт осуществлен с помощью добавления таймера в функцию main:
+```c
+// Таймер
+time_t start_time =  clock();
+for (i = 0; i < 2000000; ++i) {
+	// Вызов метода для извлечения из А положительных элементов в B
+	b_size = Task(A, a_size, B);
+}
+time_t end_time = clock();
+printf("\nпрограмма работает %f миллисекунд\n", difftime(end_time, start_time));
 ```
