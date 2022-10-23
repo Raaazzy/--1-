@@ -1,4 +1,4 @@
-# ИДЗ №1 по АВС (на 8 баллов)
+# ИДЗ №1 по АВС (на 9 баллов)
 Омирбекова Дария, группа БПИ-217<br>
 Вариант 1
 
@@ -242,7 +242,7 @@ for(i = 0; i < b_size; ++i) {
 ![image](https://user-images.githubusercontent.com/111382627/197299084-fa416624-b2c6-40f6-89d5-7dbafa729383.png)
 ![image](https://user-images.githubusercontent.com/111382627/197299213-a9009076-f5a5-40eb-86d6-777102c8fb8d.png)
 
-# На 8 баллов:
+# На 8-9 баллов:
 ### - Добавлен генератор случайных наборов данных, расширяющих возможности тестирования:
 > главный файл с функцией main - [main.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%208/main.c)<br>
 побочный файл с функцией task для создания массива B - [task.c](https://github.com/Raaazzy/Home_work_1/blob/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0%208/task.c)<br>
@@ -329,3 +329,12 @@ printf("\nпрограмма работает %f миллисекунд\n", diff
 ![image](https://user-images.githubusercontent.com/111382627/197296995-6012b0d0-f050-4c69-b10d-97e3521d6e50.png)
 Модифицированная программа:<br>
 ![image](https://user-images.githubusercontent.com/111382627/197296939-effa1213-a61f-486c-9f0c-2e87a3cabae8.png)
+
+### - Веса файлов:
+на 8-9 баллов: 16,6 КБ
+на 6 баллов: 16,8 КБ
+на 4 балла: 16,8 КБ
+
+### - Количество строк:
+Оптимизированный код - 392 строк
+Неоптимизированный код - 470 строк
